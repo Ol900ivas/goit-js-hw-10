@@ -43,7 +43,7 @@ function onInput(e) {
       }
     })
     .catch(onError)
-    .finally(() => (inputEl.value = ''));
+    // .finally(() => (inputEl.value = ''));
 }
 
 // Очищуємо розмітку
