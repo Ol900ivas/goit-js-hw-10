@@ -12,3 +12,4 @@ function fetchCountries(query) {
 }
 
 export default fetchCountries;
+

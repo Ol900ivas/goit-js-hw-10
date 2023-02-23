@@ -21,6 +21,11 @@ function onInput(e) {
   console.log(inputEl);
   const query = inputEl.value.trim();
   console.log(query);
+  // Якщо в інпуті нічого немає, не відправляємо запит)
+  if (!query) {
+    return;
+  }
+
   fetchCountries(query)
     .then(countries => {
       resetMarkup();
@@ -43,6 +48,7 @@ function onInput(e) {
       }
     })
     .catch(onError)
+  
     // .finally(() => (inputEl.value = ''));
 }
 
@@ -80,7 +86,7 @@ function createCountryItemMarkup({ name, flags }) {
     </li>`;
 }
 
-// Робимо розмітку для однієї країни
+// Робимо розмітку для однієї країни (беремо перший об'єкт з масиву: [0] і деструктуруємо)
 function createCountryMarkup(countries) {
   const { name, capital, population, flags, languages } = countries[0];
   const markup = `<div class="wrapper"><img class="country-flag" src="${
